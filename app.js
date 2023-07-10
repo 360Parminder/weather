@@ -238,7 +238,7 @@ function send() {
 
             var key = data.city.id;
 
-            const hourly = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${api}&details=true&metric=true`;
+            const hourly = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${api}&details=true&metric=true`;
 
             fetch(hourly)
                 .then(response => {
@@ -572,7 +572,7 @@ function send() {
             
             
 
-            const air = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API}`;
+            const air = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API}`;
 
             fetch(air)
                 .then(response => {
