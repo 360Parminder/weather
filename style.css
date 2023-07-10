@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+/* font-family: 'Nunito', sans-serif; */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+hr {
+    margin: 8px 0px;
+}
+
+h4 {
+    color: #fff;
+    padding: 10px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.box {
+    border-radius: 18px;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.container {
+    margin-top: 10vh;
+    max-width: 1280px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 3.8vw;
+    width: 160px;
+    height: auto;
+}
+.location ion-icon{
+    font-size: 25px;
+}
+.location button{
+    display: flex;
+    margin-right: 7.5vw;
+    width: 200px;
+    height: 33px;
+    border: none;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2d;
+    color: #fff;
+    font-size: 20px;
+
+}
+.location button:active{
+    background-color: #53535f;
+}
+
+.left {
+    width: 30vw;
+    height: 200vh;
+}
+
+.now {
+    background-color: #48484880;
+    width: 24vw;
+    height: 38vh;
+    border-radius: 18px;
+    padding: 2vh 2vw;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 70px;
+}
+
+.weather img {
+    margin-left: 2vw;
+    width: 60px;
+    height: 60px;
+}
+
+.cloud {
+    text-transform: capitalize;
+}
+
+.week-forecast {
+    margin-top: 3vh;
+    width: 24vw;
+    height: 65vh;
+}
+
+.week-forecast h3 {
+    font-size: 22px;
+    padding: 10px 15px;
+}
+
+.week-details {
+    background-color: #48484880;
+    height: 70vh;
+}
+
+.week-details ul {
+    padding-top: 1vh;
+}
+
+.week-details ion-icon {
+    font-size: 50px;
+}
+
+.week-details li {
+    justify-content: space-around;
+    margin-top: .1vh;
+}
+
+.detal {
+    font-size: 20px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    width: 70vw;
+    height: 200vh;
+}
+
+.today-highlights {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-around;
+    background-color: #48484880;
+    border-radius: 4px 4px 12px 12px;
+    height: 55vh;
+    width: 60vw;
+
+}
+
+.today-highlights h3 {
+    font-size: 20px;
+    margin-left: 2vw;
+}
+
+.air-details img {
+    margin-left: 1vw;
+    margin-right: 2vw;
+}
+
+.air-details h5 {
+    font-weight: 100;
+}
+
+.air-detail p {
+    font-size: 20px;
+}
+
+.air-detail li {
+    padding: 10px;
+}
+
+.small-box img {
+    /* margin-top: 1.5vh; */
+    margin-left: 1.5vw;
+}
+
+.small-box li {
+    margin-top: 2vh;
+}
+
+.today-at h3 {
+    margin-top: 2vh;
+    margin-left: 1.5vw;
+}
+
+.today-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60vw;
+}
+
+.today-details img {
+    width: 35px;
+}
+
+.big-box {
+    background-color: #000;
+    width: 29vw;
+    height: 20vh;
+}
+
+
+.small-box {
+    background-color: #000;
+    margin-top: 2vh;
+    border-radius: 8px;
+    width: 13vw;
+    height: 19vh;
+}
+
+.s-small {
+    display: flex;
+    flex-direction: column;
+    background-color: #48484880;
+    margin-top: 1vh;
+    width: 9vw;
+    height: 8vw;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.currentlocation{
+    font-size: 25px;
+    text-transform: capitalize;
+    
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+
+.input {
+    max-width: 250px;
+    height: 100%;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #53535f;
+    caret-color: #f7f7f8;
+    color: #fff;
+    padding: 7px 10px;
+    border: 2px solid transparent;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    margin-right: 1px;
+    transition: all .2s ease;
+}
+
+.input:hover {
+    border: 2px solid rgba(255, 255, 255, 0.16);
+}
+
+.input:focus {
+    border: 2px solid #a970ff;
+    background-color: #0e0e10;
+}
+
+.search__btn {
+    border: none;
+    cursor: pointer;
+    background-color: rgba(42, 42, 45, 1);
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__btn:hover {
+    background-color: rgba(54, 54, 56, 1);
+}
+
+
+
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #223243;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background-color: #223243;
+    box-shadow: inset 2px -2px 0 1.8px #fff;
+    transition: .4s;
+    animation: anima1 0.3s linear;
+}
+
+@keyframes anima1 {
+    0% {
+        transform: translateX(1.5em);
+    }
+
+    80% {
+        transform: translateX(-0.3em);
+    }
+
+    100% {
+        transform: translateX(0em);
+    }
+}
+
+.switch input:checked+.slider:before {
+    background-color: yellow;
+    box-shadow: none;
+    transform: translateX(1.5em);
+    animation: anima 0.3s linear;
+}
+
+@keyframes anima {
+    0% {
+        transform: translateX(0px)
+    }
+
+    80% {
+        transform: translateX(1.6em)
+    }
+
+    100% {
+        transform: translateX(1.4em)
+    }
+}

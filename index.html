@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/fevicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.10.0.css" />
+        <script src="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.10.0.js"></script>
+    <title>Weather</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class=""><img class="logo" src="img/logo.png" alt="" srcset=""></div>
+            <div class="search">
+                <input type="text" name="text" id="location" class="input" placeholder="Enter your location">
+                <!-- <div class="error">Not a city</div> -->
+                <button onclick="send()" id="btn" class="search__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+                        <path
+                            d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
+                            fill="#efeff1"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- <p class="currentlocation" id="currentlocation">alwar</p> -->
+            <div class="location"><button onclick="getLocation()"><ion-icon name="location-outline"></ion-icon>Current Location</button></div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="left">
+            <div class="now">
+                <h4>Now</h4>
+                <div class="weather">
+                <p id="weather_temp"></p>
+                <img id="weather_icon" src="" alt="">
+            </div>
+                <p id="weather_desc" class="cloud"></p>
+                <hr>
+                <p id="" class="date"></p>
+                <div class="row"><p id="city" class="city"></p><p id="country"></p></div>
+            </div>
+            <div class="week-forecast">
+                <h3> 5 Days Forecast </h3>
+
+                <div class="week-details box">
+                    <ul>
+                        <li class="detail row"><img id="day1_icon" src="" alt="" srcset=""><p id="day1"></p>
+                            <p id="day1_d"></p>
+                            
+                        </li>
+                        <li class="detail row"><img id="day2_icon" src="" alt="" srcset=""><p id="day2"></p>
+                            <p id="day2_d"></p>
+                            
+                        </li>
+                        <li class="detail row"><img id="day3_icon" src="" alt="" srcset=""><p id="day3"></p>
+                            <p id="day3_d"></p>
+                            
+                        </li>
+                        <li class="detail row"><img id="day4_icon" src="" alt="" srcset=""><p id="day4"></p>
+                            <p id="day4_d"></p>
+                            
+                        </li>
+                        <li class="detail row"><img id="day5_icon" src="" alt="" srcset=""><p id="day5"></p>
+                            <p id="day5_d"></p>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="today-highlights ">
+                <h3>Todays Highlights</h3>
+                <div class="flex">
+                    <div class="air-quality box big-box">
+                        <h4>Air Quality Index</h4>
+                        <div class="air-details row">
+                            <img src="img/wind.png" alt="">
+                            <ul class="air-detail row">
+                                <li>
+                                    <h5>PM<sub>2.5</sub></h5>
+                                    <p id="pm"></p>
+                                </li>
+                                <li>
+                                    <h5>SO<sub>2</sub></h5>
+                                    <p id="so"></p>
+                                </li>
+                                <li>
+                                    <h5>NO<sub>2</sub></h5>
+                                    <p id="no"></p>
+                                </li>
+                                <li>
+                                    <h5>O<sub>3</sub></h5>
+                                    <p id="o"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sunrise-sunset box big-box">
+                        <h4> Sunrise & Sunset</h4>
+                        <div class="air-details row">
+                            <ul class="air-detail row">
+                                <img src="img/icons8-sun-50.png" alt="">
+                                <li>
+                                    <h5>Sunrise</h5>
+                                    <p id="sunrise"></p>
+                                </li>
+                                <img src="img/icons8-moon-30.png" alt="">
+                                <li>
+                                    <h5>Sunset</h5>
+                                    <p id="sunset"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="humidity small-box box">
+                        <h4>Humidity</h4>
+                        <ul class="air-detail row">
+                            <img style="width: 50px;" src="img/icons8-forcast-128.png" alt="">
+                            <li>
+                                <p id="humidity"></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pressure small-box box">
+                        <h4> Pressure</h4>
+                        <ul class="air-detail row">
+                            <img src="img/icons8-wave-lines-48.png" alt="">
+                            <li class="row" style=" align-items:normal;">
+                                <p id="pressure"></p><sub>hPa</sub>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="visibility small-box box">
+                        <h4>Visibility</h4>
+                        <ul class="air-detail row">
+                            <img src="img/icons8-eye-48.png" alt="">
+                            <li>
+                                <p id="visibility">10Km</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feels-like small-box box">
+                        <h4>Feels Like</h4>
+                        <ul class="air-detail row">
+                            <img src="img/icons8-humidity-50.png" alt="">
+                            <li>
+                                <p id="feels_like"></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            
+
+            </div>
+            <div class="today-at">
+                <h3>Today at</h3>
+            <ul class="today-details">
+                <li class="s-small"><h4 id="hrs_1"></h4><img id="hrs_1_icon" src="" alt=""><p id="hrs_1_t"></p></li>
+                <li class="s-small"><h4 id="hrs_2"></h4><img id="hrs_2_icon" src="" alt=""><p id="hrs_2_t"></p></li>
+                <li class="s-small"><h4 id="hrs_3"></h4><img id="hrs_3_icon" src="" alt=""><p id="hrs_3_t"></p></li>
+                <li class="s-small"><h4 id="hrs_4"></h4><img id="hrs_4_icon" src="" alt=""><p id="hrs_4_t"></p></li>
+                <li class="s-small"><h4 id="hrs_5"></h4><img id="hrs_5_icon" src="" alt=""><p id="hrs_5_t"></p></li>
+                <li class="s-small"><h4 id="hrs_6"></h4><img id="hrs_6_icon" src="" alt=""><p id="hrs_6_t"></p></li>
+                <li class="s-small"><h4 id="hrs_7"></h4><img id="hrs_7_icon" src="" alt=""><p id="hrs_7_t"></p></li>
+                <li class="s-small"><h4 id="hrs_8"></h4><img id="hrs_8_icon" src="" alt=""><p id="hrs_8_t"></p></li>
+                <li class="s-small"><h4 id="hrs_9"></h4><img id="hrs_9_icon" src="" alt=""><p id="hrs_9_t"></p></li>
+                <li class="s-small"><h4 id="hrs_10"></h4><img  id="hrs_10_icon"src="" alt=""><p id="hrs_10_t"></p></li>
+                <li class="s-small"><h4 id="hrs_11"></h4><img  id="hrs_11_icon"src="" alt=""><p id="hrs_11_t"></p></li>
+                <li class="s-small"><h4 id="hrs_12"></h4><img  id="hrs_12_icon"src="" alt=""><p id="hrs_12_t"></p></li>
+                <!-- <li class="s-small"><h4 id="hrs_13"></h4><img  id="hrs_13_icon"src="img/wind.png" alt=""><p id="hrs_13_t"></p></li> -->
+                <!-- <li class="s-small"><h4 id="hrs_14"></h4><img  id="hrs_14_icon"src="img/wind.png" alt=""><p id="hrs_14_t"></p></li> -->
+                <!-- <li class="s-small"><h4 id="hrs_15"></h4><img  id="hrs_15_icon"src="img/wind.png" alt=""><p id="hrs_15_t"></p></li> -->
+                <!-- <li class="s-small"><h4 id="hrs_16"></h4><img  id="hrs_16_icon"src="img/wind.png" alt=""><p id="hrs_16_t"></p></li> -->
+            </ul>
+        </div>
+        <div class="map">
+            <div id="map"></div>
+        </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
